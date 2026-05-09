@@ -1,0 +1,716 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   DESIGN SYSTEM
+========================================================= */
+:root {
+  --brand-primary-color:   #2e8b57;
+  --brand-secondary-color: #f4a261;
+  --brand-third-color:     #264653;
+  --brand-fourth-color:    #e9c46a;
+  --brand-accent-color:    #e76f51;
+
+  --bg-main: #f0f7f4;
+  --bg-card: #ffffff;
+
+  --text-primary-color:     #1a2e1f;
+  --text-secondary-color:   #4a6358;
+  --text-muted-color:       #8aaa97;
+  --text-focus-color:       #2e8b57;
+  --text-highlighted-color: #f4a261;
+
+  --border-primary-color:     #c8dfd4;
+  --border-secondary-color:   #a8cbbf;
+  --border-muted-color:       #e2ede9;
+  --border-focus-color:       #2e8b57;
+  --border-highlighted-color: #f4a261;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --transition: 0.3s ease;
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+[data-theme="dark"] {
+  --bg-main: #121f17;
+  --bg-card: #1e3228;
+
+  --text-primary-color:     #e8f5ee;
+  --text-secondary-color:   #a8c9b8;
+  --text-muted-color:       #6b9c82;
+  --text-focus-color:       #5ecb8a;
+  --text-highlighted-color: #f4a261;
+
+  --border-primary-color:     #2e5040;
+  --border-secondary-color:   #3d6b52;
+  --border-muted-color:       #243d2e;
+  --border-focus-color:       #5ecb8a;
+  --border-highlighted-color: #f4a261;
+}
+
+/* =========================================================
+   GLOBAL BASE
+========================================================= */
+body {
+  margin: 0;
+  font-family: 'Nunito', Arial, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-primary-color);
+  transition: background var(--transition), color var(--transition);
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--brand-primary-color);
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary-color);
+  margin: 0 0 8px;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary-color);
+  margin: 0 0 6px;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary-color);
+  margin: 0 0 4px;
+}
+
+p {
+  font-size: 0.97rem;
+  color: var(--text-secondary-color);
+  line-height: 1.7;
+  margin: 6px 0;
+}
+
+/* =========================================================
+   GLOBAL BUTTON SYSTEM
+========================================================= */
+button {
+  padding: 10px 22px;
+  border: none;
+  background: var(--brand-primary-color);
+  color: #fff;
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  margin-top: 12px;
+  display: inline-block;
+  letter-spacing: 0.3px;
+}
+
+button:hover {
+  background: var(--brand-secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================
+   LINK BUTTON
+========================================================= */
+.link-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 18px;
+  background: var(--brand-accent-color);
+  color: #fff;
+  font-family: 'Nunito', Arial, sans-serif;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), transform var(--transition);
+  font-size: 0.9rem;
+}
+
+.link-button:hover {
+  background: var(--brand-secondary-color);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   BUTTON SIZES
+========================================================= */
+button.lg-button {
+  padding: 14px 32px;
+  font-size: 1.1rem;
+}
+
+button.sm-button {
+  padding: 7px 16px;
+  font-size: 0.85rem;
+}
+
+button.tiny-button {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  margin-top: 0;
+}
+
+button.border-button {
+  background: transparent;
+  border: 2px solid var(--brand-primary-color);
+  color: var(--brand-primary-color);
+}
+
+button.border-button:hover {
+  background: var(--brand-primary-color);
+  color: #fff;
+}
+
+/* =========================================================
+   SELECT INPUT
+========================================================= */
+select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-primary-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-primary-color);
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  appearance: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+select:hover {
+  border-color: var(--border-secondary-color);
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--border-focus-color);
+  box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.15);
+}
+
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.select-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+/* =========================================================
+   NAV BUTTON
+========================================================= */
+nav button {
+  margin-top: 0;
+  padding: 7px 16px;
+  font-size: 0.88rem;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: #fff;
+  border-radius: var(--radius-sm);
+}
+
+nav button:hover {
+  background: rgba(255, 255, 255, 0.32);
+  transform: none;
+  box-shadow: none;
+}
+
+nav a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 32px;
+  background: var(--brand-primary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+nav > a {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+  align-items: center;
+}
+
+nav li {
+  position: relative;
+  list-style: none;
+}
+
+nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted-color);
+  border-radius: var(--radius-md);
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+  z-index: 999;
+  flex-direction: column;
+  padding: 6px 0;
+}
+
+nav .dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+nav .dropdown-menu a {
+  color: var(--text-primary-color);
+  padding: 9px 16px;
+  border-radius: 0;
+  font-size: 0.9rem;
+  display: block;
+}
+
+nav .dropdown-menu a:hover {
+  background: var(--bg-main);
+  color: var(--brand-primary-color);
+}
+
+/* =========================================================
+   HAMBURGER BUTTON
+========================================================= */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 6px;
+  margin-top: 0;
+  box-shadow: none;
+}
+
+.menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: none;
+  box-shadow: none;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* =========================================================
+   MOBILE NAVBAR
+========================================================= */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    padding: 12px 20px;
+    position: relative;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--brand-third-color);
+    padding: 10px 0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    gap: 0;
+    margin-top: 10px;
+    border-radius: var(--radius-md);
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 12px 24px;
+    border-radius: 0;
+    font-size: 1rem;
+  }
+
+  nav .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+
+  nav .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 0;
+    width: 100%;
+    min-width: unset;
+    border-radius: 0;
+  }
+}
+
+/* =========================================================
+   PAGE CONTENT
+========================================================= */
+.page {
+  padding: 40px 36px;
+  min-height: calc(100vh - 160px);
+}
+
+/* =========================================================
+   CARD SYSTEM
+========================================================= */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: 30px 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted-color);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.13);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.card a {
+  background: none;
+  color: var(--brand-primary-color);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: auto;
+  padding: 8px 0;
+  transition: color var(--transition);
+}
+
+.card a:hover {
+  color: var(--brand-accent-color);
+  background: none;
+}
+
+/* =========================================================
+   FORM SYSTEM
+========================================================= */
+.form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: var(--bg-card);
+  padding: 36px 40px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.09);
+  border: 1px solid var(--border-muted-color);
+}
+
+form div {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-primary-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-main);
+  color: var(--text-primary-color);
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 0.95rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--border-focus-color);
+  box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.15);
+  background: var(--bg-card);
+}
+
+form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-primary-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-main);
+  color: var(--text-primary-color);
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 0.95rem;
+  resize: vertical;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  box-sizing: border-box;
+}
+
+form textarea:focus {
+  outline: none;
+  border-color: var(--border-focus-color);
+  box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.15);
+  background: var(--bg-card);
+}
+
+/* =========================================================
+   TABLE SYSTEM
+========================================================= */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-card);
+  font-size: 0.93rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+
+table thead {
+  background: var(--brand-primary-color);
+  color: #fff;
+}
+
+table th {
+  padding: 13px 16px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+table td {
+  padding: 12px 16px;
+  color: var(--text-primary-color);
+  border-bottom: 1px solid var(--border-muted-color);
+  white-space: nowrap;
+}
+
+table tbody tr:nth-child(odd) {
+  background: var(--bg-card);
+}
+
+table tbody tr:nth-child(even) {
+  background: var(--bg-main);
+}
+
+table tbody tr:hover {
+  background: rgba(46, 139, 87, 0.1);
+  cursor: pointer;
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-compact th,
+.table-compact td {
+  padding: 7px 12px;
+  font-size: 0.85rem;
+}
+
+td {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-empty {
+  text-align: center;
+  color: var(--text-muted-color);
+  padding: 32px;
+  font-style: italic;
+}
+
+.table-row-selected {
+  background: rgba(46, 139, 87, 0.18) !important;
+}
+
+/* =========================================================
+   FOOTER SYSTEM
+========================================================= */
+footer {
+  background: var(--brand-third-color);
+  color: rgba(255, 255, 255, 0.88);
+  padding: 40px 36px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto 24px;
+}
+
+.footer-container > div {
+  flex: 1;
+  min-width: 180px;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+
+footer a:hover {
+  color: var(--brand-secondary-color);
+}
+
+footer p {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.85rem;
+  margin: 4px 0;
+  text-align: center;
+}
+
+footer h1 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+footer h2 {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+}
+
+footer h3 {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.92rem;
+  margin-bottom: 10px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 768px) {
+  .page {
+    padding: 24px 16px;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 340px;
+  }
+
+  .form-container {
+    padding: 24px 20px;
+    margin: 20px 16px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  footer {
+    padding: 28px 20px 16px;
+  }
+}
