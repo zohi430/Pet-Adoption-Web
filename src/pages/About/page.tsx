@@ -1,72 +1,118 @@
-import { Link } from 'react-router-dom';
+import InfoCard from '../../components/ui/InfoCard';
+
+const impact = [
+  { year: '2020', adopted: '312',   shelters: '8',  volunteers: '45'  },
+  { year: '2021', adopted: '587',   shelters: '14', volunteers: '92'  },
+  { year: '2022', adopted: '814',   shelters: '21', volunteers: '150' },
+  { year: '2023', adopted: '964',   shelters: '28', volunteers: '210' },
+  { year: '2024', adopted: '1,102', shelters: '35', volunteers: '290' },
+  { year: '2025', adopted: '1,340', shelters: '42', volunteers: '380' },
+];
+
+const values = [
+  { icon: '❤️', title: 'Compassion',   desc: 'Every animal deserves love and safety. We treat every pet with dignity and care throughout the adoption process.' },
+  { icon: '🔍', title: 'Transparency', desc: 'We provide honest, complete information about each pet so families can make well-informed decisions.'             },
+  { icon: '🤝', title: 'Community',    desc: 'We partner with local shelters, vets, and volunteers to build a strong support network for adopters.'             },
+];
+
+const team = [
+  { name: 'Sarah Mitchell', role: 'Founder & CEO',      desc: 'Veterinarian with 15 years of experience and a lifelong love for animals.'        },
+  { name: 'James Okafor',   role: 'Head of Adoptions',  desc: 'Coordinates pet placements and ensures every match is a perfect fit.'             },
+  { name: 'Priya Sharma',   role: 'Veterinary Partner', desc: 'Oversees all health screenings and provides follow-up care guidance.'             },
+  { name: 'Tom Rivera',     role: 'Community Manager',  desc: 'Manages foster networks and volunteer programs across partner shelters.'           },
+];
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="text-2xl max-sm:text-xl font-bold mt-8 mb-2 text-primary">
+      {children}
+    </h2>
+  );
+}
+
+/* Alternating row background — odd rows use bg-card, even use bg-main */
+function TrAlt({ children, even }: { children: React.ReactNode; even: boolean }) {
+  return (
+    <tr className={`cursor-pointer transition-colors duration-200
+                    hover:bg-brand-primary/10
+                    ${even ? 'bg-main' : 'bg-card'}`}>
+      {children}
+    </tr>
+  );
+}
+
+function Td({ children }: { children: React.ReactNode }) {
+  return (
+    <td className="px-4 py-3 border-b border-border-token text-primary
+                   max-w-[280px] overflow-hidden text-ellipsis whitespace-nowrap">
+      {children}
+    </td>
+  );
+}
 
 export default function About() {
   return (
-    <section className="page">
-      <h1>About Us</h1>
-      <p>We are a passionate team of animal lovers dedicated to connecting homeless pets with caring families. Since 2020, we have helped over 3,000 animals find their forever homes.</p>
+    <section className="px-9 py-10 min-h-[calc(100vh-160px)] max-sm:px-4 max-sm:py-6">
 
-      <h2>Our Mission</h2>
-      <p>To eliminate animal homelessness by building a trusted, transparent, and compassionate adoption platform that empowers both adopters and shelters.</p>
+      <h1 className="text-4xl max-sm:text-3xl font-extrabold leading-tight mb-2 text-brand-primary">
+        About Us
+      </h1>
+      <p className="text-sm leading-relaxed my-1 text-secondary">
+        We are a passionate team of animal lovers dedicated to connecting homeless pets with caring families.
+        Since 2020, we have helped over 3,000 animals find their forever homes.
+      </p>
 
-      <h2>Our Values</h2>
-      <div className="card-container">
-        <div className="card">
-          <h3>❤️ Compassion</h3>
-          <p>Every animal deserves love and safety. We treat every pet with dignity and care throughout the adoption process.</p>
-        </div>
-        <div className="card">
-          <h3>🔍 Transparency</h3>
-          <p>We provide honest, complete information about each pet so families can make well-informed decisions.</p>
-        </div>
-        <div className="card">
-          <h3>🤝 Community</h3>
-          <p>We partner with local shelters, vets, and volunteers to build a strong support network for adopters.</p>
-        </div>
+      <SectionHeading>Our Mission</SectionHeading>
+      <p className="text-sm leading-relaxed my-1 text-secondary">
+        To eliminate animal homelessness by building a trusted, transparent, and compassionate adoption
+        platform that empowers both adopters and shelters.
+      </p>
+
+      {/* Values */}
+      <SectionHeading>Our Values</SectionHeading>
+      <div className="flex flex-wrap justify-center gap-6 my-8 max-sm:flex-col max-sm:items-center">
+        {values.map(v => (
+          <InfoCard key={v.title}>
+            <h3 className="text-lg font-bold mb-1 text-primary">{v.icon} {v.title}</h3>
+            <p className="text-sm leading-relaxed my-1 text-secondary">{v.desc}</p>
+          </InfoCard>
+        ))}
       </div>
 
-      <h2>Meet the Team</h2>
-      <div className="card-container">
-        <div className="card">
-          <h3>Sarah Mitchell</h3>
-          <h4>Founder &amp; CEO</h4>
-          <p>Veterinarian with 15 years of experience and a lifelong love for animals.</p>
-        </div>
-        <div className="card">
-          <h3>James Okafor</h3>
-          <h4>Head of Adoptions</h4>
-          <p>Coordinates pet placements and ensures every match is a perfect fit.</p>
-        </div>
-        <div className="card">
-          <h3>Priya Sharma</h3>
-          <h4>Veterinary Partner</h4>
-          <p>Oversees all health screenings and provides follow-up care guidance.</p>
-        </div>
-        <div className="card">
-          <h3>Tom Rivera</h3>
-          <h4>Community Manager</h4>
-          <p>Manages foster networks and volunteer programs across partner shelters.</p>
-        </div>
+      {/* Team */}
+      <SectionHeading>Meet the Team</SectionHeading>
+      <div className="flex flex-wrap justify-center gap-6 my-8 max-sm:flex-col max-sm:items-center">
+        {team.map(m => (
+          <InfoCard key={m.name}>
+            <h3 className="text-lg font-bold mb-1 text-primary">{m.name}</h3>
+            <h4 className="text-base font-semibold mb-1 text-secondary">{m.role}</h4>
+            <p className="text-sm leading-relaxed my-1 text-secondary">{m.desc}</p>
+          </InfoCard>
+        ))}
       </div>
 
-      <h2>Our Impact</h2>
-      <div className="table-container">
-        <table>
-          <thead>
+      {/* Impact table */}
+      <SectionHeading>Our Impact</SectionHeading>
+      <div className="w-full overflow-x-auto mt-5">
+        <table className="w-full border-collapse rounded-[10px] overflow-hidden text-sm shadow-sm bg-card">
+          <thead className="bg-brand-primary text-white">
             <tr>
-              <th>Year</th>
-              <th>Pets Adopted</th>
-              <th>Partner Shelters</th>
-              <th>Volunteers</th>
+              {['Year', 'Pets Adopted', 'Partner Shelters', 'Volunteers'].map(h => (
+                <th key={h} className="px-4 py-3 text-left font-bold text-xs uppercase tracking-wide">
+                  {h}
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
-            <tr><td>2020</td><td>312</td><td>8</td><td>45</td></tr>
-            <tr><td>2021</td><td>587</td><td>14</td><td>92</td></tr>
-            <tr><td>2022</td><td>814</td><td>21</td><td>150</td></tr>
-            <tr><td>2023</td><td>964</td><td>28</td><td>210</td></tr>
-            <tr><td>2024</td><td>1,102</td><td>35</td><td>290</td></tr>
-            <tr><td>2025</td><td>1,340</td><td>42</td><td>380</td></tr>
+            {impact.map((row, i) => (
+              <TrAlt key={row.year} even={i % 2 !== 0}>
+                <Td>{row.year}</Td>
+                <Td>{row.adopted}</Td>
+                <Td>{row.shelters}</Td>
+                <Td>{row.volunteers}</Td>
+              </TrAlt>
+            ))}
           </tbody>
         </table>
       </div>
